@@ -17,11 +17,11 @@ var bot = new twit({
   timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
 })
 ///////////////////////////////////
-var stream = bot.stream('statuses/filter', { track: '@aditya_368' });
+var stream = bot.stream('statuses/filter', { track: 'aditya_368' });
 
 stream.on('tweet', function (tweet) {
     console.log("tweet.text",tweet.text);
-     replyTo(tweet, 'Good gopal!');
+     replyTo(tweet, 'Greeting from Aditya!');
 });
 
 function replyTo(tweet, message) {
@@ -50,7 +50,7 @@ var sendTweet = function(){
 // Send tweet every 28 minutes, and on start
 setInterval(function() {
   sendTweet();
-}, 1700);
+}, 1700000);
 sendTweet();
 
 app.get('/', (req, res) => res.send('Hello World!'));
