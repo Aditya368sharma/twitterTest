@@ -14,7 +14,7 @@ var bot = new twit({
   consumer_secret:      process.env.TWITTER_CONSUMER_SECRET,
   access_token:         process.env.TWITTER_ACCESS_TOKEN,
   access_token_secret:  process.env.TWITTER_ACCESS_TOKEN_SECRET,
-  timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
+  timeout_ms:           60*100,  // optional HTTP request timeout to apply to all requests.
 })
 ///////////////////////////////////
 
@@ -37,6 +37,7 @@ setInterval(function() {
 }, 1700);
 sendTweet();
 
+app.get('/', (req, res) => res.send('Hello World!'));
 
 
 
