@@ -17,7 +17,7 @@ var bot = new twit({
   timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
 })
 ///////////////////////////////////
-var stream = bot.stream('statuses/filter', { track: 'hi' });
+var stream = bot.stream('statuses/filter', { track: 'fun' });
 
 stream.on('tweet', function (tweet) {
     console.log(tweet.text);
