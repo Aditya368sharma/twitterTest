@@ -21,6 +21,7 @@ var stream = bot.stream('statuses/filter', { track: '@aditya_368' });
 
 stream.on('tweet', function (tweet) {
     console.log("tweet.text",tweet.text);
+     replyTo(tweet, 'Good evening!');
 });
 
 function replyTo(tweet, message) {
