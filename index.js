@@ -43,7 +43,7 @@ var sendTweet = function(){
 // Send tweet every 28 minutes, and on start
 setInterval(function() {
   sendTweet();
-}, 1700000);
+}, 1700);
 sendTweet();
 
 app.get('/', (req, res) => res.send('Hello World!'));
