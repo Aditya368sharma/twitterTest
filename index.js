@@ -20,12 +20,12 @@ var bot = new twit({
 var stream = bot.stream('statuses/filter', { track: '@aditya_368' });
 
 stream.on('tweet', function (tweet) {
-    console.log(tweet.text);
+    console.log("tweet.text",tweet.text);
 });
 
 function replyTo(tweet, message) {
 	var text = '@' + tweet.user.screen_name + ' ' + message;
-	T.post('statuses/update', { status: text, in_reply_to_status_id: tweet.user.id_str },
+	bot.post('statuses/update', { status: text, in_reply_to_status_id: tweet.user.id_str },
 	    function(err, data, response) {
 		console.log(data)
 	    }
