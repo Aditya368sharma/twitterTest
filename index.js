@@ -14,10 +14,25 @@ var bot = new twit({
   consumer_secret:      process.env.TWITTER_CONSUMER_SECRET,
   access_token:         process.env.TWITTER_ACCESS_TOKEN,
   access_token_secret:  process.env.TWITTER_ACCESS_TOKEN_SECRET,
-  timeout_ms:           60*100,  // optional HTTP request timeout to apply to all requests.
+  timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
 })
 ///////////////////////////////////
+var stream = bot.stream('statuses/filter', { track: 'hi' });
 
+stream.on('tweet', function (tweet) {
+    console.log(tweet.text);
+});
+
+function replyTo(tweet, message) {
+	var text = '@' + tweet.user.screen_name + ' ' + message;
+	T.post('statuses/update', { status: text, in_reply_to_status_id: tweet.user.id_str },
+	    function(err, data, response) {
+		console.log(data)
+	    }
+	);
+}
+
+////////////
 
 // Callback chain
 var sendTweet = function(){
