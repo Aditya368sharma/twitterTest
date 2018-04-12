@@ -46,6 +46,8 @@ setInterval(function() {
 }, 1700000);
 sendTweet();
 
+app.get('/', (req, res) => res.send('Hello World!'));
+
 function getWord(callback){
   randomWord = 'http://api.wordnik.com:80/v4/words.json/randomWord?hasDictionaryDef=true&minCorpusCount=0&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&api_key=' + process.env.WORDNIK_KEY;
   request(randomWord, function (error, response, body) {
