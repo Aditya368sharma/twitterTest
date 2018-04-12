@@ -1,15 +1,27 @@
 {
   "name": "our-twitterbot-name",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+  "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.16.3",
     "node-twitterbot": "^0.2.2",
+    "request": "^2.85.0",
     "twit": "^2.2.9"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aditya368sharma/twitterTest.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Aditya368sharma/twitterTest/issues"
+  },
+  "homepage": "https://github.com/Aditya368sharma/twitterTest#readme",
+  "description": ""
 }
