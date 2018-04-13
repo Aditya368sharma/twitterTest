@@ -17,11 +17,14 @@ var client = new Twitter({
 });
 
 var params = {
-  screen_name: 'nodejs',
+  screen_name: 'DianaServer',
   text: 'Hello World'
 };
 client.post('direct_messages/new', params, function(error, message, response) {
-  if (!error) {
+  if (error){
+    console.log(error);
+  }
+  else  {
     console.log(message);
   }
 });
