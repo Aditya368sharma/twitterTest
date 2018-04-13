@@ -6,7 +6,7 @@ var Twitter = require('twitter');
 
 
 var app = express();
-app.set('port', process.env.PORT || 6000);
+app.set('port', process.env.PORT || 7000);
 app.get('/', (req, res) => res.send('Hello World!'));
 
 var client = new Twitter({
@@ -24,6 +24,10 @@ client.post('direct_messages/new', params, function(error, message, response) {
   if (!error) {
     console.log(message);
   }
+});
+
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
 });
 
 
