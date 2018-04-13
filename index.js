@@ -45,9 +45,6 @@ var something = (function() {
   };
 })();
 
-something(); // "do something" happens
-something(); // nothing happens
-
 }
 )
 
