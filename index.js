@@ -20,25 +20,36 @@ var bot = new twit({
 var stream = bot.stream('user');
 stream.on('direct_message', function (eventMsg) {
     console.log(eventMsg)
+var something = (function() {
+  var executed = false;
 
-var params = {
-  screen_name: 'jensonjms',
-  text: 'Hello World!!!'
-};
-bot.post('direct_messages/new', params, function(error, message, response) {
-  if (error){
-    console.log(error);
-    return (error);
-  }
-  else  {
-    console.log(message);
-    return (response);
-  }
-});
-return;
+  var params = {
+    screen_name: 'jensonjms',
+    text: 'Hello World!!!'
+  };
+  bot.post('direct_messages/new', params, function(error, message, response) {
+    if (error){
+      console.log(error);
+      return (error);
+    }
+    else  {
+      console.log(message);
+      return (response);
+    }
+  });
+  return function() {
+      if (!executed) {
+          executed = true;
+          // do something
+      }
+  };
+})();
+
+something(); // "do something" happens
+something(); // nothing happens
+
 }
 )
-
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
