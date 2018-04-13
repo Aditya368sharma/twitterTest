@@ -18,24 +18,28 @@ var bot = new twit({
 })
 ///////////////////////////////////
 //var stream = bot.stream('statuses/filter', { track: 'aditya_368' });
+app.get('/', (req, res) => res.send('Hello World!'));
+
+
 var stream = bot.stream('user');
 
-stream.on('tweet', function (tweet) {
-    console.log("tweet.text",tweet.text);
-     replyTo(tweet, 'Greeting from Aditya!');
-});
-
-function replyTo(tweet, message) {
-	var text = '@' + tweet.user.screen_name + ' ' + message;
-	bot.post('statuses/update', { status: text, in_reply_to_status_id: tweet.user.id_str },
-	    function(err, data, response) {
-		console.log(data)
-	    }
-	);
-}
+// stream.on('tweet', function (tweet) {
+//     console.log("tweet.text",tweet.text);
+//      replyTo(tweet, 'Greeting from Aditya!');
+// });
+//
+// function replyTo(tweet, message) {
+// 	var text = '@' + tweet.user.screen_name + ' ' + message;
+// 	bot.post('statuses/update', { status: text, in_reply_to_status_id: tweet.user.id_str },
+// 	    function(err, data, response) {
+// 		console.log(data)
+// 	    }
+// 	);
+// }
 
 ////////////
 
+function replyToDirectMessage(){
 
 stream.on('direct_message', function (eventMsg) {
 var msg = eventMsg.direct_message.text;
@@ -61,15 +65,15 @@ if(screenName != eventMsg.direct_message.recipient_screen_name){
 }
 
 // Callback chain
-var sendTweet = function(){
-
-      function nowReturnTweet(definition){
-        var wordAndDef = "Hi"+ ": " + "adi";
-        bot.post('statuses/update', { status: wordAndDef }, function(err, data, response) {
-          console.log("Success!");
-        });
-      }
-    }
+// var sendTweet = function(){
+//
+//       function nowReturnTweet(definition){
+//         var wordAndDef = "Hi"+ ": " + "adi";
+//         bot.post('statuses/update', { status: wordAndDef }, function(err, data, response) {
+//           console.log("Success!");
+//         });
+//       }
+//     }
 
 
 // Send tweet every 28 minutes, and on start
@@ -78,7 +82,6 @@ setInterval(function() {
 }, 1700000);
 sendTweet();
 
-app.get('/', (req, res) => res.send('Hello World!'));
 
 
 
@@ -88,6 +91,5 @@ app.listen(app.get('port'), function() {
 });
 
 
-function replyToDirectMessage(){
 
  //get the user stream
