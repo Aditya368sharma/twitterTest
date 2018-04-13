@@ -21,19 +21,19 @@ var stream = bot.stream('user');
 stream.on('direct_message', function (eventMsg) {
     console.log(eventMsg)
 })
-//
-// var params = {
-//   screen_name: 'DianaServer',
-//   text: 'Hello World'
-// };
-// client.post('direct_messages/new', params, function(error, message, response) {
-//   if (error){
-//     console.log(error);
-//   }
-//   else  {
-//     console.log(message);
-//   }
-// });
+
+var params = {
+  screen_name: 'aditya_368',
+  text: 'Hello World'
+};
+bot.post('direct_messages/new', params, function(error, message, response) {
+  if (error){
+    console.log(error);
+  }
+  else  {
+    console.log(message);
+  }
+});
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
