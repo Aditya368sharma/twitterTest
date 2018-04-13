@@ -1,33 +1,39 @@
  var express = require('express');
-// var twit = require('twit');
+ var twit = require('twit');
  var request = require('request');
 //
-var Twitter = require('twitter');
+//var Twitter = require('twitter');
 
 
 var app = express();
 app.set('port', process.env.PORT || 7000);
 app.get('/', (req, res) => res.send('Hello World!'));
 
-var client = new Twitter({
+var bot = new twit({
     consumer_key:         process.env.TWITTER_CONSUMER_KEY,
     consumer_secret:      process.env.TWITTER_CONSUMER_SECRET,
     access_token:         process.env.TWITTER_ACCESS_TOKEN,
     access_token_secret:  process.env.TWITTER_ACCESS_TOKEN_SECRET,
 });
 
-var params = {
-  screen_name: 'DianaServer',
-  text: 'Hello World'
-};
-client.post('direct_messages/new', params, function(error, message, response) {
-  if (error){
-    console.log(error);
-  }
-  else  {
-    console.log(message);
-  }
-});
+
+var stream = bot.stream('user');
+stream.on('direct_message', function (eventMsg) {
+    console.log(eventMsg)
+})
+//
+// var params = {
+//   screen_name: 'DianaServer',
+//   text: 'Hello World'
+// };
+// client.post('direct_messages/new', params, function(error, message, response) {
+//   if (error){
+//     console.log(error);
+//   }
+//   else  {
+//     console.log(message);
+//   }
+// });
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
