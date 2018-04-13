@@ -23,7 +23,7 @@ stream.on('direct_message', function (eventMsg) {
 })
 
 var params = {
-  screen_name: 'aditya_368',
+  screen_name: 'jensonjms',
   text: 'Hello World'
 };
 bot.post('direct_messages/new', params, function(error, message, response) {
