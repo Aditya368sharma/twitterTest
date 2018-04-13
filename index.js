@@ -39,30 +39,30 @@ function replyTo(tweet, message) {
 
 ////////////
 
-// function replyToDirectMessage(){
-//
-// stream.on('direct_message', function (eventMsg) {
-// var msg = eventMsg.direct_message.text;
-// var screenName = eventMsg.direct_message.sender.screen_name;
-// var userId = eventMsg.direct_message.sender.id;
-//
-// // reply object
-// var replyTo = { user_id: userId,
-//   text: "Thanks for your message :)",
-//   screen_name: screenName };
-//
-// console.log(screenName + " says: " + msg );
-//
-// // avoid replying to yourself when the recipient is you
-// if(screenName != eventMsg.direct_message.recipient_screen_name){
-//
-//   //post reply
-//   bot.post("direct_messages/new",replyTo, function(err,data,response){
-//           console.info(data);
-//       });
-//   }
-// });
-// }
+function replyToDirectMessage(){
+
+stream.on('direct_message', function (eventMsg) {
+var msg = eventMsg.direct_message.text;
+var screenName = eventMsg.direct_message.sender.screen_name;
+var userId = eventMsg.direct_message.sender.id;
+
+// reply object
+var replyTo = { user_id: userId,
+  text: "Thanks for your message :)",
+  screen_name: screenName };
+
+console.log(screenName + " says: " + msg );
+
+// avoid replying to yourself when the recipient is you
+if(screenName != eventMsg.direct_message.recipient_screen_name){
+
+  //post reply
+  bot.post("direct_messages/new",replyTo, function(err,data,response){
+          console.info(data);
+      });
+  }
+});
+}
 
 // Callback chain
 var sendTweet = function(){
