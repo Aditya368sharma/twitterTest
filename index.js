@@ -4,6 +4,11 @@
 //
 var Twitter = require('twitter');
 
+
+var app = express();
+app.set('port', process.env.PORT || 6000);
+app.get('/', (req, res) => res.send('Hello World!'));
+
 var client = new Twitter({
     consumer_key:         process.env.TWITTER_CONSUMER_KEY,
     consumer_secret:      process.env.TWITTER_CONSUMER_SECRET,
