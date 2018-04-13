@@ -20,7 +20,7 @@ var bot = new twit({
 var stream = bot.stream('user');
 stream.on('direct_message', function (eventMsg) {
     console.log(eventMsg)
-var something = (function() {
+var replyback = (function() {
   var executed = false;
 
   var params = {
