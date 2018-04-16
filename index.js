@@ -52,20 +52,20 @@ var replyback = (function() {
 })();
 
 }
-);
+)();
 
 
 var postMessage = function(pm){
   console.log("postMessage start >>>>",pm);
   bot.post('direct_messages/new', pm, function(error, message, response) {
-  if (error){
-    console.log(error);
-    return (error);
-  }
-  else  {
-    console.log(message);
-    return (response);
-  }
+  // if (error){
+  //   console.log(error);
+  //   return (error);
+  // }
+  // else  {
+  //   console.log(message);
+  //   return (response);
+  // }
  });
 };
  postMessage(params);
