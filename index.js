@@ -22,6 +22,7 @@ var count =0;
 params = {
   screen_name: 'jensonjms',
   text: `Hello World!!! ${count++}`
+  
 };
 var stream = bot.stream('user');
 stream.on('direct_message', function (eventMsg) {
@@ -32,7 +33,6 @@ stream.on('direct_message', function (eventMsg) {
     if (eventMsg.direct_message.sender.screen_name==="aditya_368"){
       console.log("should not call post method as msg coming from ",eventMsg.direct_message.sender.screen_name);
     } else {
-
       console.log("eventMsg.direct_message.text>>>",eventMsg.direct_message.text);
       var inputext =eventMsg.direct_message.text
       console.log("inputext",inputext);
