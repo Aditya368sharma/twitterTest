@@ -17,16 +17,17 @@ var bot = new twit({
 });
 
 var params = {};
+var count =1;
+params = {
+  screen_name: 'jensonjms',
+  text: `Hello World!!! ${count++}`
+};
 var stream = bot.stream('user');
 stream.on('direct_message', function (eventMsg) {
     console.log(eventMsg)
 var replyback = (function() {
   var executed = false;
-  var count =1;
-  params = {
-    screen_name: 'jensonjms',
-    text: `Hello World!!! ${count++}`
-  };
+  count++;
   // bot.post('direct_messages/new', params, function(error, message, response) {
   //   if (error){
   //     console.log(error);
