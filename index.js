@@ -4,7 +4,7 @@
 //
 //var Twitter = require('twitter');
 
-Var clientAccessToken=process.env.clientAccessToken;
+var clientAccessToken=process.env.clientAccessToken;
 
 var app = express();
 app.set('port', process.env.PORT || 7000);
