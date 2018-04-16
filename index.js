@@ -42,15 +42,16 @@ var headers = {
 
 // Configure the request//https://api.dialogflow.com/v1/query?v=20150910&lang=en&query=hi&sessionId=12345
 var options = {
-    url: 'https://api.dialogflow.com',
-    path: '/v1/query?v=20150910&lang=en&query=' + inputext + '&sessionId=1',
-    method: 'GET',
+  //  url: 'https://api.dialogflow.com',
+    url : 'https://api.dialogflow.com/v1/query?v=20150910&lang=en&query=hi&sessionId=12345',
+    //path: '/v1/query?v=20150910&lang=en&query=' + inputext + '&sessionId=1',
+    //method: 'GET',
     headers: headers,
     //qs: {'key1': 'xxx', 'key2': 'yyy'}
 }
 
 // Start the request
-request(options, function (error, response, body) {
+request.get(options, function (error, response, body) {
   console.log("options>>>",options);
     if (!error && response.statusCode == 200) {
         // Print out the response body
@@ -62,7 +63,7 @@ request(options, function (error, response, body) {
     } else {
       console.log("error>>",error);
     }
-}) ();
+})
       // console.log("should call post method");
       // console.log("Sent Response >>",params);
       // //postMessage(params);
