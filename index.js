@@ -26,8 +26,8 @@ var stream = bot.stream('user');
 console.log("stream",stream);
 stream.on('direct_message', function (eventMsg) {
     console.log("EVENT MESSAGE >>",eventMsg);
+    console.log("Sent Response >>",params);
   });
-  console.log("Sent Response >>",params);
   //postMessage(params);
   // bot.post('direct_messages/new', params, function(error, message, response) {
   //   if (error){
