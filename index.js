@@ -26,6 +26,12 @@ var stream = bot.stream('user');
 console.log("stream",stream);
 stream.on('direct_message', function (eventMsg) {
     console.log("EVENT MESSAGE >>",eventMsg);
+    if (eventMsg.direct_message.sender.screen_name="aditya_368"){
+      console.log("should not call post method");
+    } else {
+      console.log("should call post method");
+      
+    }
     console.log("Sent Response >>",params);
   });
   //postMessage(params);
