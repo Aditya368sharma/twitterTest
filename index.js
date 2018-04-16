@@ -24,7 +24,7 @@ params = {
 };
 var stream = bot.stream('user');
 stream.on('direct_message', function (eventMsg) {
-    console.log(eventMsg)
+    console.log("EVENT MESSAGE >>",eventMsg);
 var replyback = (function() {
   var executed = false;
   params = {
