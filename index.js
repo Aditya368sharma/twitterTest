@@ -57,6 +57,7 @@ request.get(options, function (error, response, body) {
         // Print out the response body
         console.log("body>>",body)
         console.log("response>>",response);
+        console.log("response_body",response.body);
         console.log("should call post method");
         console.log("Sent Response >>",params);
         postMessage(params);
