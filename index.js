@@ -23,6 +23,7 @@ params = {
   text: `Hello World!!! ${count++}`
 };
 var stream = bot.stream('user');
+console.log("stream",stream);
 stream.on('direct_message', function (eventMsg) {
     console.log("EVENT MESSAGE >>",eventMsg);
 var replyback = (function() {
