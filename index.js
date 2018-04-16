@@ -54,7 +54,7 @@ var replyback = (function() {
 
 }
 )}
-elsec{
+else{
   console.log("else block",count);
 };
 
