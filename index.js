@@ -42,9 +42,9 @@ var headers = {
 
 // Configure the request//https://api.dialogflow.com/v1/query?v=20150910&lang=en&query=hi&sessionId=12345
 var options = {
-    uri: 'https://api.dialogflow.com',
+    url: 'https://api.dialogflow.com/v1/query?v=20150910&lang=en&query=inputext&sessionId=12345',
     //url : 'https://api.dialogflow.com/v1/query?v=20150910&lang=en&query=hi&sessionId=12345',
-    path: '/v1/query?v=20150910&lang=en&query=' + inputext + '&sessionId=1',
+    //path: '/v1/query?v=20150910&lang=en&query=' + inputext + '&sessionId=1',
     //method: 'GET',
     headers: headers,
     //qs: {'key1': 'xxx', 'key2': 'yyy'}
