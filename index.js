@@ -31,7 +31,8 @@ var replyback = (function() {
     screen_name: 'jensonjms',
     text: `Hello World!!! ${count++}`
   };
-  postMessage(params);
+  console.log("Sent Response >>",params);
+  //postMessage(params);
   // bot.post('direct_messages/new', params, function(error, message, response) {
   //   if (error){
   //     console.log(error);
