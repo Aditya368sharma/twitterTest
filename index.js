@@ -33,7 +33,7 @@ stream.on('direct_message', function (eventMsg) {
 
       console.log("eventMsg.direct_message.text>>>",eventMsg.direct_message.text);
       var inputext =eventMsg.direct_message.text
-console.log("inputext",inputext);
+      console.log("inputext",inputext);
 // Set the headers
 var headers = {
     'Authorization':       'Bearer '+ clientAccessToken,
@@ -53,12 +53,17 @@ var options = {
 request(options, function (error, response, body) {
     if (!error && response.statusCode == 200) {
         // Print out the response body
-        console.log(body)
+        console.log("body>>",,body)
+        console.log("should call post method");
+        console.log("Sent Response >>",params);
+        postMessage(params);
+    } else {
+      console.log("error>>",error);
     }
 })
-      console.log("should call post method");
-      console.log("Sent Response >>",params);
-      postMessage(params);
+      // console.log("should call post method");
+      // console.log("Sent Response >>",params);
+      // //postMessage(params);
     }
   });
 
