@@ -32,6 +32,7 @@ stream.on('direct_message', function (eventMsg) {
     } else {
       console.log("should call post method");
       console.log("Sent Response >>",params);
+      postMessage(params);
     }
   });
   //postMessage(params);
