@@ -27,11 +27,6 @@ console.log("stream",stream);
 stream.on('direct_message', function (eventMsg) {
     console.log("EVENT MESSAGE >>",eventMsg);
   });
-  var executed = false;
-  params = {
-    screen_name: 'jensonjms',
-    text: `Hello World!!! ${count++}`
-  };
   console.log("Sent Response >>",params);
   //postMessage(params);
   // bot.post('direct_messages/new', params, function(error, message, response) {
