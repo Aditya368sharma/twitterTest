@@ -16,37 +16,50 @@ var bot = new twit({
     access_token_secret:  process.env.TWITTER_ACCESS_TOKEN_SECRET,
 });
 
-
+var params = {};
 var stream = bot.stream('user');
 stream.on('direct_message', function (eventMsg) {
     console.log(eventMsg)
 var replyback = (function() {
   var executed = false;
-
-  var params = {
+  var count =1;
+  params = {
     screen_name: 'jensonjms',
-    text: 'Hello World!!!'
+    text: `Hello World!!! ${count++}`
   };
-  bot.post('direct_messages/new', params, function(error, message, response) {
-    if (error){
-      console.log(error);
-      return (error);
-    }
-    else  {
-      console.log(message);
-      return (response);
-    }
-  });
-  return function() {
-      if (!executed) {
-          executed = true;
-          // do something
-      }
-  };
+  // bot.post('direct_messages/new', params, function(error, message, response) {
+  //   if (error){
+  //     console.log(error);
+  //     return (error);
+  //   }
+  //   else  {
+  //     console.log(message);
+  //     return (response);
+  //   }
+  //  });
+  // return function() {
+  //     if (!executed) {
+  //         executed = true;
+  //         // do something
+  //     }
+  // };
 })();
 
 }
-)
+);
+
+
+bot.post('direct_messages/new', params, function(error, message, response) {
+  if (error){
+    console.log(error);
+    return (error);
+  }
+  else  {
+    console.log(message);
+    return (response);
+  }
+ });
+
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
