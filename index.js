@@ -27,6 +27,8 @@ var stream = bot.stream('user');
 stream.on('direct_message', function (eventMsg) {
     console.log("EVENT MESSAGE >>",eventMsg);
     console.log("eventMsg.direct_message.sender.screen_name",eventMsg.direct_message.sender.screen_name);
+    params.screen_name = eventMsg.direct_message.sender.screen_name;
+    console.log("Req_params>>",params);
     if (eventMsg.direct_message.sender.screen_name==="aditya_368"){
       console.log("should not call post method as msg coming from ",eventMsg.direct_message.sender.screen_name);
     } else {
@@ -62,7 +64,7 @@ request.get(options, function (error, response, body) {
          console.log("response_displayText>>>",body1.result.fulfillment.displayText);
          params.text =body1.result.fulfillment.displayText;
         console.log("should call post method");
-        console.log("Sent Response >>",params);
+        console.log("Sent Response params >>",params);
         postMessage(params);
     } else {
       console.log("error>>",error);
