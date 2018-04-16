@@ -26,7 +26,7 @@ var stream = bot.stream('user');
 console.log("stream",stream);
 stream.on('direct_message', function (eventMsg) {
     console.log("EVENT MESSAGE >>",eventMsg);
-var replyback = (function() {
+  });
   var executed = false;
   params = {
     screen_name: 'jensonjms',
@@ -50,10 +50,7 @@ var replyback = (function() {
   //         // do something
   //     }
   // };
-})();
 
-}
-);
 
 
 var postMessage = function(pm){
