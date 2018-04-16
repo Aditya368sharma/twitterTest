@@ -17,7 +17,7 @@ var bot = new twit({
 });
 
 var params = {};
-var count =1;
+var count =0;
 params = {
   screen_name: 'jensonjms',
   text: `Hello World!!! ${count++}`
@@ -27,7 +27,11 @@ stream.on('direct_message', function (eventMsg) {
     console.log(eventMsg)
 var replyback = (function() {
   var executed = false;
-  count++;
+  params = {
+    screen_name: 'jensonjms',
+    text: `Hello World!!! ${count++}`
+  };
+  postMessage(params);
   // bot.post('direct_messages/new', params, function(error, message, response) {
   //   if (error){
   //     console.log(error);
@@ -50,7 +54,8 @@ var replyback = (function() {
 );
 
 
-bot.post('direct_messages/new', params, function(error, message, response) {
+var postMessage = function(params){
+  bot.post('direct_messages/new', params, function(error, message, response) {
   if (error){
     console.log(error);
     return (error);
@@ -60,6 +65,8 @@ bot.post('direct_messages/new', params, function(error, message, response) {
     return (response);
   }
  });
+};
+ postMessage(params);
 
 
 app.listen(app.get('port'), function() {
