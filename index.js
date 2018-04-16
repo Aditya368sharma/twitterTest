@@ -52,7 +52,7 @@ var replyback = (function() {
 })();
 
 }
-)
+);
 
 
 var postMessage = function(pm){
