@@ -63,6 +63,7 @@ request.get(options, function (error, response, body) {
          console.log("response_result>>>",body1.result);
          console.log("response_fulfilment>>>",body1.result.fulfillment);
          console.log("response_displayText>>>",body1.result.fulfillment.displayText);
+         params.text =body1.result.fulfillment.displayText;
         console.log("should call post method");
         console.log("Sent Response >>",params);
         postMessage(params);
