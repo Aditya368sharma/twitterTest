@@ -54,6 +54,7 @@ request(options, function (error, response, body) {
     if (!error && response.statusCode == 200) {
         // Print out the response body
         console.log("body>>",body)
+        console.log("response>>",response);
         console.log("should call post method");
         console.log("Sent Response >>",params);
         postMessage(params);
