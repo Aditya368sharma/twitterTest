@@ -55,8 +55,9 @@ var replyback = (function() {
 );
 
 
-var postMessage = function(params){
-  bot.post('direct_messages/new', params, function(error, message, response) {
+var postMessage = function(pm){
+  console.log("postMessage start >>",);
+  bot.post('direct_messages/new', pm, function(error, message, response) {
   if (error){
     console.log(error);
     return (error);
