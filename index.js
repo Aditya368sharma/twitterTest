@@ -4,6 +4,7 @@
 //
 //var Twitter = require('twitter');
 
+Var clientAccessToken=process.env.clientAccessToken;
 
 var app = express();
 app.set('port', process.env.PORT || 7000);
@@ -23,37 +24,43 @@ params = {
   text: `Hello World!!! ${count++}`
 };
 var stream = bot.stream('user');
-console.log("stream",stream);
 stream.on('direct_message', function (eventMsg) {
     console.log("EVENT MESSAGE >>",eventMsg);
     console.log("eventMsg.direct_message.sender.screen_name",eventMsg.direct_message.sender.screen_name);
     if (eventMsg.direct_message.sender.screen_name==="aditya_368"){
-      console.log("should not call post method");
+      console.log("should not call post method as msg coming from ",eventMsg.direct_message.sender.screen_name);
     } else {
+
+      console.log("eventMsg.direct_message.text>>>",eventMsg.direct_message.text);
+      var inputext =eventMsg.direct_message.text
+
+// Set the headers
+var headers = {
+    'Authorization':       'Bearer '+ clientAccessToken,
+    'Content-Type':     'application/json'
+}
+
+// Configure the request//https://api.dialogflow.com/v1/query?v=20150910&lang=en&query=hi&sessionId=12345
+var options = {
+    url: 'api.dialogflow.com',
+    path: '/v1/query?v=20150910&lang=en&query=' + inputext + '&sessionId=1',
+    method: 'GET',
+    headers: headers,
+    //qs: {'key1': 'xxx', 'key2': 'yyy'}
+}
+
+// Start the request
+request(options, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        // Print out the response body
+        console.log(body)
+    }
+})
       console.log("should call post method");
       console.log("Sent Response >>",params);
       postMessage(params);
     }
   });
-  //postMessage(params);
-  // bot.post('direct_messages/new', params, function(error, message, response) {
-  //   if (error){
-  //     console.log(error);
-  //     return (error);
-  //   }
-  //   else  {
-  //     console.log(message);
-  //     return (response);
-  //   }
-  //  });
-  // return function() {
-  //     if (!executed) {
-  //         executed = true;
-  //         // do something
-  //     }
-  // };
-
-
 
 var postMessage = function(pm){
   console.log("postMessage start >>>>",pm);
