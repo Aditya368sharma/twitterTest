@@ -33,7 +33,7 @@ stream.on('direct_message', function (eventMsg) {
 
       console.log("eventMsg.direct_message.text>>>",eventMsg.direct_message.text);
       var inputext =eventMsg.direct_message.text
-
+console.log("inputext",inputext);
 // Set the headers
 var headers = {
     'Authorization':       'Bearer '+ clientAccessToken,
