@@ -55,13 +55,14 @@ request.get(options, function (error, response, body) {
   console.log("options>>>",options);
     if (!error && response.statusCode == 200) {
         // Print out the response body
-        console.log("body>>",body)
+        console.log("body>>",body);
+        var body1 = JSON.parse(body);
         console.log("JSON_parse_body",JSON.parse(body));
-        console.log("response>>",response);
-        console.log("response_body",JSON.parse(response.body));
-        // console.log("response_result>>>",response.body.result);
-        // console.log("response_fulfilment>>>",response.body.result.fulfillment);
-        // console.log("response_displayText>>>",response.body.result.fulfillment.displayText);
+        //console.log("response>>",response);
+        console.log("response_body",body1);
+         console.log("response_result>>>",body1.result);
+         console.log("response_fulfilment>>>",body1.result.fulfillment);
+         console.log("response_displayText>>>",body1.result.fulfillment.displayText);
         console.log("should call post method");
         console.log("Sent Response >>",params);
         postMessage(params);
