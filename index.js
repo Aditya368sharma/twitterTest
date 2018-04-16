@@ -62,7 +62,7 @@ request(options, function (error, response, body) {
     } else {
       console.log("error>>",error);
     }
-})
+}) ();
       // console.log("should call post method");
       // console.log("Sent Response >>",params);
       // //postMessage(params);
