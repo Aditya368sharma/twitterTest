@@ -33,7 +33,7 @@ stream.on('direct_message', function (eventMsg) {
     text: `Hello World!!! ${count++}`
   };
   console.log("Sent Response >>",params);
-  postMessage(params);
+  //postMessage(params);
   // bot.post('direct_messages/new', params, function(error, message, response) {
   //   if (error){
   //     console.log(error);
